@@ -8,7 +8,7 @@ A [Zola](https://www.getzola.org/)-based presentation template for company prese
 This repo is a GitHub template — for a new presentation, create a fresh repo from it:
 
 ```
-gh repo create my-new-talk --template scoutb-cogapp/slides-template --clone
+gh repo create test-readiness --template scoutb-cogapp/presentation --clone
 ```
 
 Then in that new repo:
@@ -18,6 +18,18 @@ make install   # installs Zola via Homebrew (Mac)
 make serve     # preview at http://localhost:1111
 make build     # output to public/
 ```
+
+To pull future template updates (or push fixes back), add the template as a second remote:
+
+```
+git remote add upstream git@github.com:scoutb-cogapp/presentation.git
+```
+
+This sets up `origin` for the new presentation and `upstream` for the template.
+
+- Push presentation content: `git push origin main`
+- Pull template updates: `git pull upstream main`
+- Push template content: `git push upstream fix-something`
 
 ## Quick start
 
@@ -63,17 +75,15 @@ Prev/Next buttons on each slide, or arrow keys / Page Up / Page Down.
 
 ## Porting template fixes back
 
-While working on a real presentation you'll sometimes fix or improve something that belongs in the template (a layout bug, a new slide type, a CSS tweak). Connect the presentation repo to this one with a second git remote, then cherry-pick the specific commit(s) across:
+While working on a real presentation you'll sometimes fix or improve something that belongs in the template (a layout bug, a new slide type, a CSS tweak). Use the `upstream` remote set up above to cherry-pick the specific commit(s) across:
 
 ```
-# one-time, inside the presentation repo
-git remote add template git@github.com:<owner>/slides-template.git
-git fetch template
+git fetch upstream
 
 # to send a fix back
-git checkout -b fix-something template/main
+git checkout -b fix-something upstream/main
 git cherry-pick <commit-sha>       # or a range: <sha1>^..<sha2>
-git push template fix-something    # then merge/PR into slides-template
+git push upstream fix-something    # then merge/PR into scoutb-cogapp/presentation
 ```
 
 For this to work cleanly, keep template-affecting changes (anything under `templates/`, `static/css/`, `Makefile`, etc.) in their own commits, separate from commits that just add slide content — that way a cherry-pick carries only the fix, however many files it touches.

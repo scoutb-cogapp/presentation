@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}Presenter Notes — {{ config.extra.presentation_title }}{% endblock %}
+
+{% block scripts %}{% endblock %}
+
+{% block body %}
+{% set slides = get_section(path="slides/_index.md") %}
+<main class="notes-page">
+  <header class="notes-header">
+    <h1>{{ config.extra.presentation_title }}</h1>
+    <a href="/">&#8592; Back to deck</a>
+  </header>
+  <ol class="notes-list">
+    {% for slide in slides.pages %}
+    <li class="note-item">
+      <h2 class="note-slide-title">{{ slide.title }}</h2>
+      {% if slide.extra.notes %}
+      <div class="note-text">{{ slide.extra.notes | markdown | safe }}</div>
+      {% else %}
+      <p class="note-empty">No notes</p>
+      {% endif %}
+    </li>
+    {% endfor %}
+  </ol>
+</main>
+{% endblock %}

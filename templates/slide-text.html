@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% import "macros.html" as macros %}
+
+{% block title %}{{ page.title }} — {{ config.extra.presentation_title }}{% endblock %}
+
+{% block body %}
+<main class="slide slide-text">
+  {{ macros::slide_header(title=page.title, intro=page.extra.intro | default(value="")) }}
+  <div class="slide-content">
+    {{ page.content | safe }}
+  </div>
+  {{ macros::slide_nav(prev_page=page.lower, next_page=page.higher) }}
+</main>
+{% endblock %}

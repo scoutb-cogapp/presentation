@@ -1,0 +1,63 @@
+/* ============================================================
+   theme-warm — earthy, handcrafted feel
+   To switch theme: set `theme = "warm"` in config.toml
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap');
+
+:root {
+  /* Typography */
+  --heading-weight: 700;
+  --heading-letter-spacing: normal;
+  --heading-font-features: normal;
+  --subheading-weight: 600;
+  --h3-line-height: 1.4;
+  --h3-letter-spacing: normal;
+  --logo-height: 2.5rem;
+
+  /* Rule */
+  --rule-display: block;
+
+  /* Colours */
+  --color-bg:           #fdfcf8;
+  --color-text:         #1e1b18;
+  --color-heading:      #2c2420;
+  --color-accent:       #7c5c3e;
+  --color-rule:         #b09070;
+  --color-muted:        #9e8e7e;
+  --color-nav-text:     #7c5c3e;
+  --color-nav-hover:    #2c2420;
+  --color-notes-border: #e0d8cc;
+  --color-code-bg:      #f0ece4;
+
+  /* Fonts */
+  --font-heading: 'Nunito', system-ui, sans-serif;
+  --font-body:    'Nunito', system-ui, sans-serif;
+
+  /* Section padding */
+  --header-padding:  3.5rem 5rem 1.5rem;
+  --intro-padding:   0 5rem 1rem;
+  --content-padding: 2rem 5rem;
+  --nav-padding:     1.5rem 5rem 3.5rem;
+
+  /* Header block — transparent, same as page bg */
+  --color-header-bg:   var(--color-bg);
+  --color-header-text: var(--color-heading);
+
+  /* Intro block — no background, just muted italic text */
+  --color-intro-bg:   transparent;
+  --color-intro-text: var(--color-muted);
+
+  /* Content area */
+  --color-content-bg: var(--color-bg);
+
+  /* Hero slides and index page */
+  --color-hero-bg:              var(--color-bg);
+  --color-hero-text:            var(--color-heading);
+  --color-hero-text-secondary:  var(--color-muted);
+  --hero-padding:          3.5rem 5rem;
+  --hero-nav-padding:      1.5rem 5rem 3.5rem;
+  --color-hero-nav-text:   var(--color-nav-text);
+  --color-hero-nav-hover:  var(--color-nav-hover);
+  --color-hero-nav-notes:  var(--color-muted);
+}

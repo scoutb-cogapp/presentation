@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="600" height="400">
+
+  <!-- Background -->
+  <rect width="600" height="400" fill="#f0ece4"/>
+
+  <!-- Sky -->
+  <rect x="0" y="0" width="600" height="260" fill="#e8e2d8"/>
+
+  <!-- Mountains (back) -->
+  <path d="M60,260 C100,180 150,140 200,115 C250,90 270,130 300,260 Z" fill="#c8baa8"/>
+  <path d="M200,260 C240,170 290,120 350,95 C410,70 440,120 480,260 Z" fill="#b8a898"/>
+
+  <!-- Mountains (front) -->
+  <path d="M0,260 C40,220 80,195 130,185 C180,175 200,210 240,260 Z" fill="#a89880"/>
+  <path d="M320,260 C360,200 410,175 460,170 C510,165 550,200 600,260 Z" fill="#9e8e78"/>
+
+  <!-- Ground -->
+  <rect x="0" y="258" width="600" height="142" fill="#c4b8a4"/>
+
+  <!-- Ground texture lines (hand-drawn feel) -->
+  <path d="M20,290 Q150,285 280,290 Q400,295 580,288" stroke="#b0a490" stroke-width="1" fill="none" stroke-linecap="round"/>
+  <path d="M0,320 Q120,315 300,322 Q460,328 600,318" stroke="#b0a490" stroke-width="1" fill="none" stroke-linecap="round"/>
+
+  <!-- Sun -->
+  <circle cx="490" cy="70" r="38" fill="#d4c0a0"/>
+  <!-- Sun rays (slightly wobbly) -->
+  <path d="M490,22 Q492,15 490,8" stroke="#c4aa88" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <path d="M527,35 Q532,30 538,25" stroke="#c4aa88" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <path d="M540,72 Q547,70 554,70" stroke="#c4aa88" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <path d="M527,108 Q532,113 537,118" stroke="#c4aa88" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <path d="M452,35 Q447,30 442,25" stroke="#c4aa88" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <path d="M440,72 Q433,70 426,70" stroke="#c4aa88" stroke-width="2" fill="none" stroke-linecap="round"/>
+
+  <!-- A small bird (two gentle curves) -->
+  <path d="M160,75 Q168,68 176,75" stroke="#9e8e78" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  <path d="M183,70 Q191,63 199,70" stroke="#9e8e78" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+
+  <!-- Frame border (slightly imperfect, hand-drawn feel) -->
+  <path d="M12,8 C200,5 400,6 590,10 C594,120 595,280 590,392 C400,396 200,395 10,392 C6,280 5,120 12,8 Z"
+        fill="none" stroke="#9e8878" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Label at bottom -->
+  <text x="300" y="358"
+        font-family="Georgia, 'Times New Roman', serif"
+        font-size="16"
+        fill="#7c6050"
+        text-anchor="middle"
+        font-style="italic"
+        opacity="0.85">your image here</text>
+
+</svg>

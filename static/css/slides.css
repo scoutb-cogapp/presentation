@@ -1,0 +1,464 @@
+/* ============================================================
+   slides.css — structure and layout only, no colours or fonts.
+   All colours, fonts and spacing variables live in theme files.
+   ============================================================ */
+
+
+/* ============================================================
+   Reset
+   ============================================================ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  background: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.65;
+}
+
+
+/* ============================================================
+   Slide shell — no padding here; each section has its own
+   ============================================================ */
+.slide {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+
+/* ============================================================
+   Slide header block
+   ============================================================ */
+.slide-header {
+  padding: var(--header-padding);
+  background: var(--color-header-bg);
+  color: var(--color-header-text);
+}
+
+.slide-title {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-weight: var(--heading-weight);
+  letter-spacing: var(--heading-letter-spacing);
+  font-feature-settings: var(--heading-font-features);
+  line-height: 1.2;
+  margin-bottom: 0.6rem;
+  /* inherits colour from .slide-header */
+}
+
+.heading-rule {
+  display: var(--rule-display);
+  width: 100%;
+  height: 12px;
+  overflow: visible;
+}
+
+
+/* ============================================================
+   Intro block (optional — set intro in slide frontmatter)
+   ============================================================ */
+.slide-intro {
+  padding: var(--intro-padding);
+  background: var(--color-intro-bg);
+  color: var(--color-intro-text);
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+}
+
+
+/* ============================================================
+   Content area
+   ============================================================ */
+.slide-content {
+  flex: 1;
+  padding: var(--content-padding);
+  background: var(--color-content-bg);
+  color: var(--color-text);
+}
+
+.slide-content h2 {
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  font-weight: var(--subheading-weight);
+  color: var(--color-heading);
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.slide-content h3 {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: var(--subheading-weight);
+  line-height: var(--h3-line-height);
+  letter-spacing: var(--h3-letter-spacing);
+  color: var(--color-heading);
+  margin-top: 1.25rem;
+  margin-bottom: 0.4rem;
+}
+
+.slide-content p { margin-bottom: 0.9rem; }
+
+.slide-content ul,
+.slide-content ol {
+  padding-left: 1.4rem;
+  margin-bottom: 0.9rem;
+}
+
+.slide-content li { margin-bottom: 0.35rem; }
+.slide-content strong { font-weight: 700; }
+.slide-content em { font-style: italic; }
+
+.slide-content code {
+  font-family: 'Courier New', monospace;
+  font-size: 0.9em;
+  background: var(--color-code-bg);
+  padding: 0.1em 0.35em;
+  border-radius: 2px;
+}
+
+
+/* ============================================================
+   Navigation
+   ============================================================ */
+.slide-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--nav-padding);
+  background: var(--color-content-bg);
+}
+
+.nav-btn {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--color-nav-text);
+  text-decoration: none;
+  letter-spacing: 0.04em;
+  transition: color 0.15s;
+}
+
+.nav-btn:hover { color: var(--color-nav-hover); }
+
+.nav-disabled {
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.nav-notes {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  color: var(--color-muted);
+  text-decoration: none;
+  letter-spacing: 0.05em;
+}
+
+.nav-notes:hover { color: var(--color-nav-text); }
+
+
+/* ============================================================
+   Hero slides (title, section, closing) — full-slide colour
+   ============================================================ */
+.slide-hero {
+  background: var(--color-hero-bg);
+}
+
+.slide-hero .title-body,
+.slide-hero .section-body,
+.slide-hero .closing-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: var(--hero-padding);
+}
+
+/* nav sits on the hero background, not the content background */
+.slide-hero .slide-nav {
+  background: var(--color-hero-bg);
+  padding: var(--hero-nav-padding);
+}
+
+.slide-hero .nav-btn   { color: var(--color-hero-nav-text); }
+.slide-hero .nav-btn:hover { color: var(--color-hero-nav-hover); }
+.slide-hero .nav-notes { color: var(--color-hero-nav-notes); }
+
+.slide-title {
+  position: relative;
+}
+
+.cover-logo {
+  position: absolute;
+  top: 2rem;
+  right: 2.5rem;
+  height: var(--logo-height);
+  width: auto;
+}
+
+.presentation-title {
+  font-family: var(--font-heading);
+  font-size: 3.5rem;
+  font-weight: var(--heading-weight);
+  letter-spacing: var(--heading-letter-spacing);
+  font-feature-settings: var(--heading-font-features);
+  color: var(--color-hero-text);
+  line-height: 1.15;
+  margin-bottom: 1rem;
+}
+
+.presentation-subtitle {
+  font-size: 1.4rem;
+  color: var(--color-hero-text-secondary);
+  font-style: italic;
+  margin-bottom: 0.5rem;
+}
+
+.presentation-date {
+  font-size: 1rem;
+  color: var(--color-hero-text-secondary);
+}
+
+.section-label {
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-hero-text-secondary);
+  margin-bottom: 0.75rem;
+}
+
+.section-title {
+  font-family: var(--font-heading);
+  font-size: 3rem;
+  font-weight: var(--heading-weight);
+  letter-spacing: var(--heading-letter-spacing);
+  font-feature-settings: var(--heading-font-features);
+  color: var(--color-hero-text);
+  line-height: 1.2;
+}
+
+.closing-title {
+  font-family: var(--font-heading);
+  font-size: 3rem;
+  font-weight: var(--heading-weight);
+  letter-spacing: var(--heading-letter-spacing);
+  font-feature-settings: var(--heading-font-features);
+  color: var(--color-hero-text);
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+.closing-content {
+  color: var(--color-hero-text-secondary);
+  font-size: 1.1rem;
+}
+
+
+/* ============================================================
+   Image + text
+   ============================================================ */
+.image-text-layout {
+  display: flex;
+  gap: 3.5rem;
+  align-items: flex-start;
+}
+
+.image-text-layout.image-first { flex-direction: row; }
+.image-text-layout.image-last  { flex-direction: row-reverse; }
+
+.image-text-layout .slide-image {
+  width: 45%;
+  height: auto;
+  object-fit: cover;
+}
+
+.image-text-layout .text-body { flex: 1; }
+
+
+/* ============================================================
+   Two-column
+   ============================================================ */
+.two-column-layout {
+  display: flex;
+  gap: 3.5rem;
+}
+
+.two-column-layout .col { flex: 1; }
+
+
+/* ============================================================
+   Contents slide
+   ============================================================ */
+.slide-contents-list {
+  list-style: decimal;
+  padding-left: 1.4rem;
+}
+
+.slide-contents-list li {
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+
+.slide-contents-list a {
+  color: var(--color-nav-text);
+  text-decoration: none;
+}
+
+.slide-contents-list a:hover {
+  color: var(--color-heading);
+  text-decoration: underline;
+}
+
+
+/* ============================================================
+   Root index page (/)
+   ============================================================ */
+.index-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background: var(--color-hero-bg);
+  padding: var(--hero-padding);
+}
+
+.index-content h1 {
+  font-family: var(--font-heading);
+  font-size: 3rem;
+  color: var(--color-hero-text);
+  line-height: 1.2;
+}
+
+.index-links {
+  display: flex;
+  gap: 1.2rem;
+  align-items: center;
+  margin-top: 2.5rem;
+}
+
+.btn-start,
+.btn-notes {
+  font-size: 1rem;
+  color: var(--color-hero-text);
+  text-decoration: none;
+  border: 1px solid var(--color-hero-text);
+  border-radius: 4px;
+  padding: 0.6rem 1.4rem;
+}
+
+.btn-start:hover,
+.btn-notes:hover {
+  color: var(--color-hero-bg);
+  background: var(--color-hero-text);
+}
+
+/* ============================================================
+   Notes page (/notes/)
+   ============================================================ */
+.notes-page {
+  max-width: 740px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+}
+
+.notes-header {
+  margin-bottom: 3rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--color-notes-border);
+}
+
+.notes-header h1 {
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  color: var(--color-heading);
+  margin-bottom: 0.5rem;
+}
+
+.notes-header a {
+  font-size: 0.9rem;
+  color: var(--color-muted);
+  text-decoration: none;
+}
+
+.notes-header a:hover { color: var(--color-nav-text); }
+
+.notes-list { list-style: none; padding: 0; }
+
+.note-item {
+  padding: 1.5rem 0;
+  border-bottom: 1px solid var(--color-notes-border);
+}
+
+.note-slide-title {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--color-heading);
+  margin-bottom: 0.4rem;
+}
+
+.note-text { color: var(--color-text); line-height: 1.6; }
+.note-text ul, .note-text ol { margin: 0.4rem 0; padding-left: 1.4rem; }
+.note-text p { margin: 0 0 0.6rem; }
+.note-text p:last-child { margin-bottom: 0; }
+
+.note-empty {
+  color: var(--color-muted);
+  font-style: italic;
+  font-size: 0.9rem;
+}
+
+
+/* ============================================================
+   Responsive — mobile
+   ============================================================ */
+@media (max-width: 700px) {
+  .slide { min-height: 100svh; }
+
+  body { font-size: 1rem; }
+
+  .slide-header  { padding: 2rem 1.5rem 1rem; }
+  .slide-intro   { padding-left: 1.5rem; padding-right: 1.5rem; }
+  .slide-content { padding: 1.5rem; }
+  .slide-nav     { padding: 1rem 1.5rem 2rem; }
+
+  .slide-hero .title-body,
+  .slide-hero .section-body,
+  .slide-hero .closing-body { padding: 2rem 1.5rem; }
+  .slide-hero .slide-nav    { padding: 1rem 1.5rem 2rem; }
+
+  .slide-title       { font-size: 1.5rem; }
+  .presentation-title { font-size: 2.2rem; }
+  .section-title,
+  .closing-title      { font-size: 2rem; }
+
+  .cover-logo {
+    top: 1rem;
+    right: 1.25rem;
+    height: calc(var(--logo-height) * 0.7);
+  }
+
+  /* Image + text: stack instead of side by side.
+     image-first keeps the image on top (column, image is first in
+     markup); image-last flips it below (column-reverse). */
+  .image-text-layout {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .image-text-layout.image-last { flex-direction: column-reverse; }
+
+  .image-text-layout .slide-image { width: 100%; }
+
+  /* Two-column: stack columns as normal block boxes (not flex) so
+     margins between them collapse naturally, same as elsewhere */
+  .two-column-layout {
+    display: block;
+  }
+
+  .notes-page   { padding: 2.5rem 1.25rem; }
+  .notes-header h1 { font-size: 1.5rem; }
+}

@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% import "macros.html" as macros %}
+
+{% block title %}{{ page.title }} — {{ config.extra.presentation_title }}{% endblock %}
+
+{% block body %}
+<main class="slide slide-closing slide-hero">
+  <div class="closing-body">
+    <h1 class="closing-title">{{ page.title }}</h1>
+    {% if page.content %}
+    <div class="closing-content">
+      {{ page.content | safe }}
+    </div>
+    {% endif %}
+  </div>
+  {{ macros::slide_nav(prev_page=page.lower, next_page=page.higher) }}
+</main>
+{% endblock %}

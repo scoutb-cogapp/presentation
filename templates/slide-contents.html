@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% import "macros.html" as macros %}
+
+{% block title %}Contents — {{ config.extra.presentation_title }}{% endblock %}
+
+{% block body %}
+{% set slides = get_section(path="slides/_index.md") %}
+<main class="slide slide-text">
+  {{ macros::slide_header(title="Contents") }}
+  <div class="slide-content">
+    <ol class="slide-contents-list">
+      {% for slide in slides.pages %}
+      {% if slide.permalink != page.permalink %}
+      <li><a href="{{ slide.permalink }}">{{ slide.title }}</a></li>
+      {% endif %}
+      {% endfor %}
+    </ol>
+  </div>
+  {{ macros::slide_nav(prev_page=page.lower, next_page=page.higher) }}
+</main>
+{% endblock %}

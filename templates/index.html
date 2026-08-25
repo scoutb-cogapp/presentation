@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}{{ config.extra.presentation_title }}{% endblock %}
+{% block title %}{{ config.title }}{% endblock %}
 
 {% block scripts %}{% endblock %}
 
@@ -9,7 +9,7 @@
 {% set first_slide = slides.pages | first %}
 <main class="index-page">
   <div class="index-content">
-    <h1>{{ config.extra.presentation_title }}</h1>
+    <h1>{{ config.title }}</h1>
     <div class="index-links">
       {% if first_slide %}
       <a href="{{ first_slide.permalink }}" class="btn-start">Start Presentation</a>

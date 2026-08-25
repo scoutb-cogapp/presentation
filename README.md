@@ -33,7 +33,7 @@ This sets up `origin` for the new presentation and `upstream` for the template.
 
 ## Quick start
 
-1. Edit `config.toml` to set your title, subtitle, date, and theme.
+1. Edit `config.toml` to set your **title**, **subtitle**, **date**, and **theme**.
 2. Add or edit slide files in `content/slides/`.
 3. Run `make serve` and open http://localhost:1111 to preview live.
 

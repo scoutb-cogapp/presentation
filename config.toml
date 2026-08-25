@@ -7,7 +7,6 @@ generate_feeds = false
 
 [extra]
 theme = "cogapp"                  # options: "warm" | "cogapp"
-presentation_title = "My Presentation"
 presentation_subtitle = "A subtitle for your presentation"
 presentation_date = ""
 logo = "cogapp-logo.svg"          # shown on cover — remove or leave empty for no logo

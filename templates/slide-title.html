@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% import "macros.html" as macros %}
 
-{% block title %}{{ config.extra.presentation_title }}{% endblock %}
+{% block title %}{{ config.title }}{% endblock %}
 
 {% block body %}
 <main class="slide slide-title slide-hero">
@@ -9,7 +9,7 @@
   <img src="/{{ config.extra.logo }}" alt="Logo" class="cover-logo">
   {% endif %}
   <div class="title-body">
-    <h1 class="presentation-title">{{ config.extra.presentation_title }}</h1>
+    <h1 class="presentation-title">{{ config.title }}</h1>
     {% if config.extra.presentation_subtitle %}
     <p class="presentation-subtitle">{{ config.extra.presentation_subtitle }}</p>
     {% endif %}

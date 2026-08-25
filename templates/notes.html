@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}Presenter Notes — {{ config.extra.presentation_title }}{% endblock %}
+{% block title %}Presenter Notes{% endblock %}
 
 {% block scripts %}{% endblock %}
 
@@ -8,7 +8,7 @@
 {% set slides = get_section(path="slides/_index.md") %}
 <main class="notes-page">
   <header class="notes-header">
-    <h1>{{ config.extra.presentation_title }}</h1>
+    <h1>{{ config.title }}</h1>
     <a href="/">&#8592; Back to deck</a>
   </header>
   <ol class="notes-list">

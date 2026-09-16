@@ -50,14 +50,14 @@ The intro field can hold something like a **subtitle or intro text** to the cont
 Templates live in `/templates`.
 
 Available templates: 
-- Landing page (just two links to start the presentation or view the notes)
-- Contents slide (auto-generated contents list)
-- Title slide 
-- Section slide
-- Text slide
-- Text with Image slide
-- Two-column slide
-- Closing slide
+- **Landing page** (just two links to start the presentation or view the notes)
+- **Contents slide** (auto-generated contents list)
+- **Title slide** 
+- **Section slide**
+- **Text slide**
+- **Text with Image slide**
+- **Two-column slide**
+- **Closing slide**
 
 ## Presenter notes
 
@@ -80,10 +80,11 @@ While working on a real presentation you'll sometimes fix or improve something t
 ```sh
 git fetch upstream
 
-# to send a fix back
 git checkout -b fix-something upstream/main
-git cherry-pick <commit-sha>       # or a range: <sha1>^..<sha2>
-git push upstream fix-something    # then merge/PR into scoutb-cogapp/presentation
+git add my.changed.file
+git commit -m "fix something"
+
+git push upstream fix-something
 ```
 
 For this to work cleanly, keep template-affecting commits separate from slide content.

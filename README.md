@@ -49,15 +49,21 @@ The intro field can hold something like a **subtitle or intro text** to the cont
 
 Templates live in `/templates`.
 
-Available templates: 
-- **Landing page** (just two links to start the presentation or view the notes)
-- **Contents slide** (auto-generated contents list)
-- **Title slide** 
-- **Section slide**
-- **Text slide**
-- **Text with Image slide**
-- **Two-column slide**
-- **Closing slide**
+### Available templates: 
+
+Intro/structure slides:
+- **Landing page** (just two links to start the presentation or view the notes) -- `index.md`
+- **Contents slide** (auto-generated contents list) -- `001-contents.md`
+- **Title slide**  -- `002-title.md`
+- **Section slide** -- `003-section.md`
+
+Content slides:
+- **Text slide** -- `010-text.md`
+- **Text with Image slide** -- `020-image-text.md`
+- **Two-column slide** -- `030-two-column.md`
+
+Closing slides:
+- **Closing slide** -- `100-closing-slide.md`
 
 ## Presenter notes
 

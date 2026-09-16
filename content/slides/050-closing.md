@@ -1,6 +1,6 @@
 +++
 title = "Thank You"
-weight = 60
+weight = 70
 template = "slide-closing.html"
 
 [extra]

@@ -1,6 +1,6 @@
 +++
 title = "Contents"
-weight = 5
+weight = 1
 template = "slide-contents.html"
 
 [extra]

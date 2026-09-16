@@ -51,19 +51,20 @@ Templates live in `/templates`.
 
 ### Available templates: 
 
-Intro/structure slides:
+Intro/structure slides - these don't need changing by hand for each presentation:
 - **Landing page** (just two links to start the presentation or view the notes) -- `index.md`
 - **Contents slide** (auto-generated contents list) -- `001-contents.md`
-- **Title slide**  -- `002-title.md`
-- **Section slide** -- `003-section.md`
+- **Title slide** (auto-generated from the config)  -- `002-title.md`
 
 Content slides:
+- **Section slide** -- `003-section.md`
 - **Text slide** -- `010-text.md`
 - **Text with Image slide** -- `020-image-text.md`
 - **Two-column slide** -- `030-two-column.md`
+- **Text with Image grid slide** (fixed 3x3 grid, list images in `extra.images`) -- `040-image-grid.md`
 
 Closing slides:
-- **Closing slide** -- `100-closing-slide.md`
+- **Closing slide** -- `050-closing.md`
 
 ## Presenter notes
 

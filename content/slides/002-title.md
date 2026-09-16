@@ -1,6 +1,6 @@
 +++
 title = "Title Slide"
-weight = 10
+weight = 2
 template = "slide-title.html"
 
 [extra]

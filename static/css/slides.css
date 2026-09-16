@@ -126,21 +126,33 @@ body {
 /* ============================================================
    Navigation
    ============================================================ */
+/* Fixed corner nav: sits outside document flow so prev/next/notes
+   stay visible regardless of how tall a slide's content runs. */
 .slide-nav {
+  position: fixed;
+  bottom: 1.5rem;
+  left: 0;
+  right: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: var(--nav-padding);
-  background: var(--color-content-bg);
+  padding: 0 1.5rem;
+  background: transparent;
+  pointer-events: none;
 }
 
 .nav-btn {
+  pointer-events: auto;
   font-family: var(--font-body);
   font-size: 0.9rem;
   color: var(--color-nav-text);
   text-decoration: none;
   letter-spacing: 0.04em;
   transition: color 0.15s;
+  background: var(--color-content-bg);
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
 .nav-btn:hover { color: var(--color-nav-hover); }
@@ -151,11 +163,16 @@ body {
 }
 
 .nav-notes {
+  pointer-events: auto;
   font-family: var(--font-body);
   font-size: 0.8rem;
   color: var(--color-muted);
   text-decoration: none;
   letter-spacing: 0.05em;
+  background: var(--color-content-bg);
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
 .nav-notes:hover { color: var(--color-nav-text); }
@@ -178,15 +195,6 @@ body {
   padding: var(--hero-padding);
 }
 
-/* nav sits on the hero background, not the content background */
-.slide-hero .slide-nav {
-  background: var(--color-hero-bg);
-  padding: var(--hero-nav-padding);
-}
-
-.slide-hero .nav-btn   { color: var(--color-hero-nav-text); }
-.slide-hero .nav-btn:hover { color: var(--color-hero-nav-hover); }
-.slide-hero .nav-notes { color: var(--color-hero-nav-notes); }
 
 .slide-title {
   position: relative;
@@ -276,6 +284,37 @@ body {
 }
 
 .image-text-layout .text-body { flex: 1; }
+
+
+/* ============================================================
+   Image grid + text
+   ============================================================ */
+.image-grid-layout {
+  display: flex;
+  gap: 3.5rem;
+  align-items: stretch;
+}
+
+.image-grid-layout.image-first { flex-direction: row; }
+.image-grid-layout.image-last  { flex-direction: row-reverse; }
+
+.image-grid-layout .image-grid {
+  height: 100%;
+  max-width: 45%;
+  aspect-ratio: 1;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 0.75rem;
+}
+
+.image-grid-layout .grid-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.image-grid-layout .text-body { flex: 1; }
 
 
 /* ============================================================
@@ -422,12 +461,11 @@ body {
   .slide-header  { padding: 2rem 1.5rem 1rem; }
   .slide-intro   { padding-left: 1.5rem; padding-right: 1.5rem; }
   .slide-content { padding: 1.5rem; }
-  .slide-nav     { padding: 1rem 1.5rem 2rem; }
+  .slide-nav     { bottom: 1rem; padding: 0 1rem; }
 
   .slide-hero .title-body,
   .slide-hero .section-body,
   .slide-hero .closing-body { padding: 2rem 1.5rem; }
-  .slide-hero .slide-nav    { padding: 1rem 1.5rem 2rem; }
 
   .slide-title       { font-size: 1.5rem; }
   .presentation-title { font-size: 2.2rem; }
@@ -451,6 +489,16 @@ body {
   .image-text-layout.image-last { flex-direction: column-reverse; }
 
   .image-text-layout .slide-image { width: 100%; }
+
+  /* Image grid: same stacking behaviour as image + text */
+  .image-grid-layout {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .image-grid-layout.image-last { flex-direction: column-reverse; }
+
+  .image-grid-layout .image-grid { width: 100%; height: auto; max-width: none; }
 
   /* Two-column: stack columns as normal block boxes (not flex) so
      margins between them collapse naturally, same as elsewhere */

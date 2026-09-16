@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% import "macros.html" as macros %}
+
+{% block title %}{{ page.title }}{% endblock %}
+
+{% block body %}
+<main class="slide slide-image-grid">
+  {{ macros::slide_header(title=page.title, intro=page.extra.intro | default(value="")) }}
+  <div class="slide-content image-grid-layout{% if page.extra.image_first | default(value=false) %} image-first{% else %} image-last{% endif %}">
+    <div class="image-grid">
+      {% for image in page.extra.images %}
+      <img src="/{{ image }}" alt="{{ page.extra.image_alt | default(value='') }}" class="grid-image">
+      {% endfor %}
+    </div>
+    <div class="text-body">
+      {{ page.content | safe }}
+    </div>
+  </div>
+  {{ macros::slide_nav(prev_page=page.lower, next_page=page.higher) }}
+</main>
+{% endblock %}

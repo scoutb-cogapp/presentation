@@ -77,7 +77,7 @@ Prev/Next buttons on each slide, or arrow keys / Page Up / Page Down.
 
 While working on a real presentation you'll sometimes fix or improve something that belongs in the template (a layout bug, a new slide type, a CSS tweak). Use the `upstream` remote set up above to cherry-pick the specific commit(s) across:
 
-```
+```sh
 git fetch upstream
 
 # to send a fix back
@@ -86,4 +86,4 @@ git cherry-pick <commit-sha>       # or a range: <sha1>^..<sha2>
 git push upstream fix-something    # then merge/PR into scoutb-cogapp/presentation
 ```
 
-For this to work cleanly, keep template-affecting changes (anything under `templates/`, `static/css/`, `Makefile`, etc.) in their own commits, separate from commits that just add slide content — that way a cherry-pick carries only the fix, however many files it touches.
+For this to work cleanly, keep template-affecting commits separate from slide content.

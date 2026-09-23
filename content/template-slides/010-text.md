@@ -1,6 +1,6 @@
 +++
 title = "A Text Slide"
-weight = 30
+weight = 40
 template = "slide-text.html"
 
 [extra]

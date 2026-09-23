@@ -9,7 +9,11 @@
   <div class="slide-content image-grid-layout{% if page.extra.image_first | default(value=false) %} image-first{% else %} image-last{% endif %}">
     <div class="image-grid">
       {% for image in page.extra.images %}
-      <img src="/{{ image }}" alt="{{ page.extra.image_alt | default(value='') }}" class="grid-image">
+      {% if image.src is starting_with("http://") or image.src is starting_with("https://") %}
+      <img src="{{ image.src }}" alt="{{ image.alt | default(value='') }}" class="grid-image">
+      {% else %}
+      <img src="/{{ image.src }}" alt="{{ image.alt | default(value='') }}" class="grid-image">
+      {% endif %}
       {% endfor %}
     </div>
     <div class="text-body">

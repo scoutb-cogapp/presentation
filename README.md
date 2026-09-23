@@ -5,7 +5,7 @@ A [Zola](https://www.getzola.org/)-based presentation template for company prese
 
 ## Setup
 
-This repo is a GitHub template — for a new presentation, create a fresh repo from it:
+This repo is a **GitHub template** — for a new presentation, create a fresh repo from it:
 
 ```
 gh repo create test-readiness --template scoutb-cogapp/presentation --clone
@@ -19,7 +19,9 @@ make serve     # preview at http://localhost:1111
 make build     # output to public/
 ```
 
-To pull future template updates (or push fixes back), add the template as a second remote:
+### Working with the template remote
+
+Add the template as a second remote:
 
 ```
 git remote add upstream git@github.com:scoutb-cogapp/presentation.git
@@ -27,27 +29,37 @@ git remote add upstream git@github.com:scoutb-cogapp/presentation.git
 
 This sets up `origin` for the new presentation and `upstream` for the template.
 
-- Push presentation content: `git push origin main`
+While building a presentation, commit and **push template fixes to `upstream`** as you go, but **leave slide content (`content/slides/`) uncommitted until the presentation is finished**. That keeps `main` free of presentation commits, so pushing template changes stays clean:
+
+```
+git add templates/my-changed-file.html
+git commit -m "fix something"
+git push upstream main
+```
+
 - Pull template updates: `git pull upstream main`
-- Push template content: `git push upstream fix-something`
+- Push presentation content, once finished: `git push origin main`
+
+**Alternative work process:**
+never push any template changes at all. just manually copy and paste any changed template files into the local template repo and push to the template repo from there.
 
 ## Quick start
 
 1. Edit `config.toml` to set your **title**, **subtitle**, **date**, and **theme**.
-2. Add or edit slide files in `content/slides/`.
+2. Add slides to `content/slides/`.
 3. Run `make serve` and open http://localhost:1111 to preview live.
-
-## Adding slides
-
-Create files in `content/slides/`.
-
-Order of slides is controlled by the **weight** field.
-
-The intro field can hold something like a **subtitle or intro text** to the content of a slide.
 
 ## Templates
 
-Templates live in `/templates`.
+The actual templates live in `/templates`. Edit those to change the aappearance of slides.
+
+Template slide examples live in `content/template-slides/`. There is one slide for each type of template in there. When first setting up, it can be helpful to copy the whole lot into the `slides` directory so you can see what they look like.
+
+## Adding slides
+
+Create markdown files in `content/slides/` using the template examples in `content/template-slides`.
+
+Order of slides is controlled by the **weight** field. It is recommended to also use numbering in the file names so they appear in correct order and are easy to find.
 
 ### Available templates: 
 
@@ -58,6 +70,7 @@ Intro/structure slides - these don't need changing by hand for each presentation
 
 Content slides:
 - **Section slide** -- `003-section.md`
+- **Section with image slide** -- `004-section-with-image.md`
 - **Text slide** -- `010-text.md`
 - **Text with Image slide** -- `020-image-text.md`
 - **Two-column slide** -- `030-two-column.md`
@@ -80,18 +93,3 @@ You can use markdown.
 
 Prev/Next buttons on each slide, or arrow keys / Page Up / Page Down.
 
-## Porting template fixes back
-
-While working on a real presentation you'll sometimes fix or improve something that belongs in the template (a layout bug, a new slide type, a CSS tweak). Use the `upstream` remote set up above to cherry-pick the specific commit(s) across:
-
-```sh
-git fetch upstream
-
-git checkout -b fix-something upstream/main
-git add my.changed.file
-git commit -m "fix something"
-
-git push upstream fix-something
-```
-
-For this to work cleanly, keep template-affecting commits separate from slide content.

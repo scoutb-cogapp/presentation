@@ -1,12 +1,13 @@
 +++
 title = "Image and Text"
-weight = 40
+weight = 50
 template = "slide-image-text.html"
 
 [extra]
 image = "images/placeholder.svg"
 image_alt = "Describe the image here for accessibility"
 image_first = false
+
 intro = "An optional line that sits below the heading — useful for a subtitle or context. It will grow to contain your content."
 notes = "Point to the image when making this argument. The key stat is in the caption."
 +++

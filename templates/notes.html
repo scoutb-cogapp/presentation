@@ -23,5 +23,12 @@
     </li>
     {% endfor %}
   </ol>
+  {% set extra_page = get_page(path="notes.md") %}
+  {% if extra_page.content %}
+  <section class="notes-extra">
+    <h2>Additional notes</h2>
+    {{ extra_page.content | safe }}
+  </section>
+  {% endif %}
 </main>
 {% endblock %}

@@ -1,6 +1,6 @@
 +++
 title = "Two Columns"
-weight = 50
+weight = 60
 template = "slide-two-column.html"
 
 [extra]

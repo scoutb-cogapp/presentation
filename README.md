@@ -51,7 +51,7 @@ never push any template changes at all. just manually copy and paste any changed
 
 ## Templates
 
-The actual templates live in `/templates`. Edit those to change the aappearance of slides.
+The actual templates live in `/templates`. Edit those to change the appearance of slides.
 
 Template slide examples live in `content/template-slides/`. There is one slide for each type of template in there. When first setting up, it can be helpful to copy the whole lot into the `slides` directory so you can see what they look like.
 

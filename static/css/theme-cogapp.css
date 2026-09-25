@@ -115,8 +115,8 @@
   --font-body:    'Untitled Serif', Georgia, serif;
 
   /* Section padding */
-  --header-padding:  2rem 4rem;
-  --intro-padding:   1.25rem 4rem;
+  --header-padding:  1rem 4rem;
+  --intro-padding:   0.4rem 4rem;
   --content-padding: 2.5rem 4rem;
   --nav-padding:     1.25rem 4rem 2rem;
 

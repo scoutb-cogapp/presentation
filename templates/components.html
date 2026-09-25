@@ -1,4 +1,4 @@
-{% macro slide_header(title, intro="") %}
+{% component slide_header(title: string, intro: string = "") %}
 <header class="slide-header">
   <h1 class="slide-title">{{ title }}</h1>
   <svg class="heading-rule" viewBox="0 0 1000 12" preserveAspectRatio="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
@@ -8,9 +8,9 @@
 {% if intro %}
 <div class="slide-intro">{{ intro }}</div>
 {% endif %}
-{% endmacro %}
+{% endcomponent slide_header %}
 
-{% macro slide_nav(prev_page, next_page) %}
+{% component slide_nav(prev_page, next_page) %}
 <nav class="slide-nav" aria-label="Slide navigation">
   {% if prev_page %}
   <a href="{{ prev_page.permalink }}" rel="prev" class="nav-btn nav-prev">&#8592; Prev</a>
@@ -26,4 +26,4 @@
   <span class="nav-btn nav-disabled" aria-hidden="true"></span>
   {% endif %}
 </nav>
-{% endmacro %}
+{% endcomponent slide_nav %}

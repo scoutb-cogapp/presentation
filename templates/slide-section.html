@@ -1,5 +1,4 @@
 {% extends "base.html" %}
-{% import "macros.html" as macros %}
 
 {% block title %}{{ page.title }}{% endblock %}
 
@@ -8,6 +7,6 @@
   <div class="section-body">
     <h1 class="section-title">{{ page.title }}</h1>
   </div>
-  {{ macros::slide_nav(prev_page=page.lower, next_page=page.higher) }}
+  {{ <slide_nav prev_page={page.lower} next_page={page.higher} /> }}
 </main>
 {% endblock %}

@@ -15,6 +15,9 @@
     {% for slide in slides.pages %}
     <li class="note-item">
       <h2 class="note-slide-title">{{ slide.title }}</h2>
+      {% if slide.extra.intro %}
+      <p class="note-intro">{{ slide.extra.intro }}</p>
+      {% endif %}
       {% if slide.extra.notes %}
       <div class="note-text">{{ slide.extra.notes | markdown | safe }}</div>
       {% else %}

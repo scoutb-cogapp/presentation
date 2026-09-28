@@ -5,16 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{% block title %}{{ config.title }}{% endblock %}</title>
   {% if config.extra.favicon %}
-  <link rel="icon" href="/{{ config.extra.favicon }}">
+  <link rel="icon" href="{{ get_url(path=config.extra.favicon) }}">
   {% endif %}
-  <link rel="stylesheet" href="/css/slides.css">
-  <link rel="stylesheet" href="/css/theme-{{ config.extra.theme }}.css">
+  <link rel="stylesheet" href="{{ get_url(path='css/slides.css') }}">
+  <link rel="stylesheet" href="{{ get_url(path='css/theme-' ~ config.extra.theme ~ '.css') }}">
   {% block head %}{% endblock %}
 </head>
 <body class="theme-{{ config.extra.theme }}">
   {% block body %}{% endblock %}
   {% block scripts %}
-  <script src="/js/nav.js"></script>
+  <script src="{{ get_url(path='js/nav.js') }}"></script>
   {% endblock %}
 </body>
 </html>

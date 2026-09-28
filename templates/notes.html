@@ -9,7 +9,7 @@
 <main class="notes-page">
   <header class="notes-header">
     <h1>{{ config.title }}</h1>
-    <a href="/">&#8592; Back to deck</a>
+    <a href="{{ get_url(path='', trailing_slash=true) }}">&#8592; Back to deck</a>
   </header>
   <ol class="notes-list">
     {% for slide in slides.pages %}

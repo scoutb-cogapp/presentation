@@ -96,3 +96,16 @@ You can use markdown.
 
 Prev/Next buttons on each slide, or arrow keys / Page Up / Page Down.
 
+## Publishing to GitHub Pages
+
+The template comes with a GitHub Actions workflow (`.github/workflows/deploy.yml`) that builds the site and publishes it to GitHub Pages on every push to `main`.
+
+In each new presentation repo:
+
+1. Go to **Settings → Pages → Build and deployment → Source** and select **GitHub Actions**. Until this is set, the workflow will fail.
+2. Make sure the repo is **public** (Pages on private repos needs a paid plan).
+3. Push to `main`. The site goes live at `https://<owner>.github.io/<repo-name>/`.
+
+**Zola version:**
+the workflow pins Zola via `ZOLA_VERSION` in `deploy.yml`. 
+

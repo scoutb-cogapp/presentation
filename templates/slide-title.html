@@ -5,7 +5,7 @@
 {% block body %}
 <main class="slide slide-title slide-hero">
   {% if config.extra.logo %}
-  <img src="/{{ config.extra.logo }}" alt="Logo" class="cover-logo">
+  <img src="{{ get_url(path=config.extra.logo) }}" alt="Logo" class="cover-logo">
   {% endif %}
   <div class="title-body">
     <h1 class="presentation-title">{{ config.title }}</h1>

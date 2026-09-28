@@ -6,7 +6,7 @@
 <main class="slide slide-image-text">
   {{ <slide_header title={page.title} intro={page.extra.intro | default(value="")} /> }}
   <div class="slide-content image-text-layout{% if page.extra.image_first | default(value=false) %} image-first{% else %} image-last{% endif %}">
-    <img src="/{{ page.extra.image }}" alt="{{ page.extra.image_alt | default(value='') }}" class="slide-image">
+    <img src="{{ get_url(path=page.extra.image) }}" alt="{{ page.extra.image_alt | default(value='') }}" class="slide-image">
     <div class="text-body">
       {{ page.content | safe }}
     </div>

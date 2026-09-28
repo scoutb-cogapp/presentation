@@ -11,7 +11,7 @@
       {% if image.src is starting_with(pat="http://") or image.src is starting_with(pat="https://") %}
       <img src="{{ image.src }}" alt="{{ image.alt | default(value='') }}" class="grid-image">
       {% else %}
-      <img src="/{{ image.src }}" alt="{{ image.alt | default(value='') }}" class="grid-image">
+      <img src="{{ get_url(path=image.src) }}" alt="{{ image.alt | default(value='') }}" class="grid-image">
       {% endif %}
       {% endfor %}
     </div>

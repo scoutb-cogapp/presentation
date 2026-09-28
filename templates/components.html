@@ -18,7 +18,7 @@
   <span class="nav-btn nav-disabled" aria-hidden="true"></span>
   {% endif %}
 
-  <a href="/notes/" class="nav-notes">Notes</a>
+  <a href="{{ get_url(path='notes', trailing_slash=true) }}" class="nav-notes">Notes</a>
 
   {% if next_page %}
   <a href="{{ next_page.permalink }}" rel="next" class="nav-btn nav-next">Next &#8594;</a>

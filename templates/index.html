@@ -14,7 +14,7 @@
       {% if first_slide %}
       <a href="{{ first_slide.permalink }}" class="btn-start">Start Presentation</a>
       {% endif %}
-      <a href="/notes/" class="btn-notes">Presenter Notes</a>
+      <a href="{{ get_url(path='notes', trailing_slash=true) }}" class="btn-notes">Presenter Notes</a>
     </div>
   </div>
 </main>

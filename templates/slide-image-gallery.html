@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}{{ page.title }}{% endblock %}
+
+{% block body %}
+<main class="slide slide-image-gallery">
+  {{ <slide_header title={page.title} intro={page.extra.intro | default(value="")} /> }}
+  <div class="slide-content image-gallery" style="--gallery-columns: {{ page.extra.columns | default(value=6) }};">
+    {% for image in page.extra.images %}
+    {% if image.src is starting_with(pat="http://") or image.src is starting_with(pat="https://") %}
+    <img src="{{ image.src }}" alt="{{ image.alt | default(value='') }}" class="gallery-image">
+    {% else %}
+    <img src="/{{ image.src }}" alt="{{ image.alt | default(value='') }}" class="gallery-image">
+    {% endif %}
+    {% endfor %}
+  </div>
+  {{ <slide_nav prev_page={page.lower} next_page={page.higher} /> }}
+</main>
+{% endblock %}

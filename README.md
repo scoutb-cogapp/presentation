@@ -29,7 +29,9 @@ git remote add upstream git@github.com:scoutb-cogapp/presentation.git
 
 This sets up `origin` for the new presentation and `upstream` for the template.
 
-While building a presentation, commit and **push template fixes to `upstream`** as you go, but **leave slide content (`content/slides/`) uncommitted until the presentation is finished**. That keeps `main` free of presentation commits, so pushing template changes stays clean:
+While building a presentation, commit and **push template fixes to `upstream`** as you go, but **leave slide content (`content/slides/`) uncommitted until the presentation is finished**. 
+
+That keeps `main` free of presentation commits, so pushing template changes stays clean:
 
 ```
 git add templates/my-changed-file.html
@@ -75,6 +77,7 @@ Content slides:
 - **Text with Image slide** -- `020-image-text.md`
 - **Two-column slide** -- `030-two-column.md`
 - **Text with Image grid slide** (fixed 3x3 grid, list images in `extra.images`) -- `040-image-grid.md`
+- **Image gallery slide** (full-width images, no text; 6 per row by default, set `extra.columns` to change) -- `045-image-gallery.md`
 
 Closing slides:
 - **Closing slide** -- `050-closing.md`

@@ -341,6 +341,23 @@ body {
 
 
 /* ============================================================
+   Image gallery (full width)
+   ============================================================ */
+.image-gallery {
+  display: grid;
+  grid-template-columns: repeat(var(--gallery-columns, 6), 1fr);
+  gap: 0.75rem;
+}
+
+.image-gallery .gallery-image {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+
+/* ============================================================
    Two-column
    ============================================================ */
 .two-column-layout {
@@ -483,6 +500,35 @@ body {
 
 
 /* ============================================================
+   Responsive — laptops and large tablets
+   ============================================================ */
+@media (max-width: 1500px) {
+  html { font-size: 100%; }
+
+  .slide-header,
+  .slide-intro,
+  .slide-content,
+  .slide-hero .title-body,
+  .slide-hero .section-body,
+  .slide-hero .closing-body,
+  .section-image-layout { padding-left: 3rem; padding-right: 3rem; }
+
+  .slide-title        { font-size: 2.5rem; }
+  .slide-intro        { font-size: 1.6rem; }
+  .presentation-title { font-size: 3rem; }
+  .section-title,
+  .closing-title      { font-size: 2.5rem; }
+
+  .section-image-layout,
+  .image-text-layout,
+  .image-grid-layout,
+  .two-column-layout  { gap: 2.5rem; }
+
+  .image-gallery { grid-template-columns: repeat(5, 1fr); }
+}
+
+
+/* ============================================================
    Responsive — mobile
    ============================================================ */
 @media (max-width: 700px) {
@@ -529,7 +575,8 @@ body {
     gap: 1.5rem;
   }
 
-  .image-text-layout.image-last { flex-direction: column-reverse; }
+  .image-text-layout.image-first { flex-direction: column; }
+  .image-text-layout.image-last  { flex-direction: column-reverse; }
 
   .image-text-layout .slide-image { width: 100%; }
 
@@ -539,9 +586,12 @@ body {
     gap: 1.5rem;
   }
 
-  .image-grid-layout.image-last { flex-direction: column-reverse; }
+  .image-grid-layout.image-first { flex-direction: column; }
+  .image-grid-layout.image-last  { flex-direction: column-reverse; }
 
   .image-grid-layout .image-grid { width: 100%; height: auto; max-width: none; }
+
+  .image-gallery { grid-template-columns: repeat(3, 1fr); }
 
   /* Two-column: stack columns as normal block boxes (not flex) so
      margins between them collapse naturally, same as elsewhere */

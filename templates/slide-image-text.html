@@ -5,11 +5,14 @@
 {% block body %}
 <main class="slide slide-image-text">
   {{ <slide_header title={page.title} intro={page.extra.intro | default(value="")} /> }}
-  <div class="slide-content image-text-layout{% if page.extra.image_first | default(value=false) %} image-first{% else %} image-last{% endif %}">
-    <img src="{{ get_url(path=page.extra.image) }}" alt="{{ page.extra.image_alt | default(value='') }}" class="slide-image">
+  <div class="slide-content image-text-layout{% if page.extra.image_first | default(value=false) %} image-first{% else %} image-last{% endif %}{% if not page.content | trim %} image-only{% endif %}">
+    {% set image_meta = get_image_metadata(path=page.extra.image) %}
+    <img src="{{ get_url(path=page.extra.image) }}" alt="{{ page.extra.image_alt | default(value='') }}" class="slide-image" style="aspect-ratio: {{ image_meta.width }} / {{ image_meta.height }};">
+    {% if page.content | trim %}
     <div class="text-body">
       {{ page.content | safe }}
     </div>
+    {% endif %}
   </div>
   {{ <slide_nav prev_page={page.lower} next_page={page.higher} /> }}
 </main>

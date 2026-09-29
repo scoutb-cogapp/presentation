@@ -264,10 +264,13 @@ body {
 
 .section-image-layout .section-body { flex: 1; }
 
+/* Fills the available height and scales the image to fit it at its own ratio; size containment keeps the image from growing the slide. */
 .section-image-layout .section-image {
-  width: 45%;
-  height: auto;
-  object-fit: cover;
+  width: 50%;
+  align-self: stretch;
+  contain: size;
+  object-fit: contain;
+  object-position: right center;
 }
 
 .closing-title {
@@ -299,10 +302,29 @@ body {
 .image-text-layout.image-first { flex-direction: row; }
 .image-text-layout.image-last  { flex-direction: row-reverse; }
 
+/* Gives the content row a definite height so each image can size its width from its own ratio. */
+.slide-image-text {
+  display: grid;
+  grid-template-rows: auto auto 1fr;
+}
+
+.slide-image-text .slide-content { grid-row: 3; }
+
 .image-text-layout .slide-image {
-  width: 45%;
-  height: auto;
-  object-fit: cover;
+  width: auto;
+  max-width: 50%;
+  align-self: stretch;
+  contain: size;
+  object-fit: contain;
+}
+
+.image-text-layout.image-first .slide-image { object-position: left top; }
+.image-text-layout.image-last  .slide-image { object-position: right top; }
+
+.image-text-layout.image-only .slide-image {
+  max-width: 100%;
+  margin: 0 auto;
+  object-position: center;
 }
 
 .image-text-layout .text-body { flex: 1; }
@@ -565,7 +587,10 @@ body {
     padding: 2rem 1.5rem;
   }
 
-  .section-image-layout .section-image { width: 100%; }
+  .section-image-layout .section-image {
+    width: 100%;
+    contain: none;
+  }
 
   /* Image + text: stack instead of side by side.
      image-first keeps the image on top (column, image is first in
@@ -578,7 +603,11 @@ body {
   .image-text-layout.image-first { flex-direction: column; }
   .image-text-layout.image-last  { flex-direction: column-reverse; }
 
-  .image-text-layout .slide-image { width: 100%; }
+  .image-text-layout .slide-image {
+    width: 100%;
+    max-width: none;
+    contain: none;
+  }
 
   /* Image grid: same stacking behaviour as image + text */
   .image-grid-layout {

@@ -74,10 +74,10 @@ Content slides:
 - **Section slide** -- `003-section.md`
 - **Section with image slide** -- `004-section-with-image.md`
 - **Text slide** -- `010-text.md`
-- **Text with Image slide** -- `020-image-text.md`
+- **Text with Image slide** (you can set whether image appears left or right, and leave out the body text to centre the image) -- `020-image-text.md`
 - **Two-column slide** -- `030-two-column.md`
 - **Text with Image grid slide** (fixed 3x3 grid, list images in `extra.images`) -- `040-image-grid.md`
-- **Image gallery slide** (full-width images, no text; 6 per row by default, set `extra.columns` to change) -- `045-image-gallery.md`
+- **Image gallery slide** (full-width image grid, no text; 6 per row by default, set `extra.columns` to change) -- `045-image-gallery.md`
 
 Closing slides:
 - **Closing slide** -- `050-closing.md`
